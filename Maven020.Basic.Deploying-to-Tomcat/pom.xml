@@ -8,6 +8,12 @@
   <name>my-webapp Maven Webapp</name>
   <url>http://maven.apache.org</url>
   
+  	<properties>
+		<tomcat.url>http://localhost:8080/manager/text</tomcat.url>
+	</properties>
+	
+	<description>${env.PATH}</description>
+  
 	<dependencies>
 		<dependency>
 			<groupId>junit</groupId>
@@ -18,14 +24,14 @@
 	</dependencies>
 	
 	<build>
-		<finalName>Maven020.Basic.Deploying-to-Tomcat</finalName>
+		<finalName>${project.artifactId}-${java.version}</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.apache.tomcat.maven</groupId>
 				<artifactId>tomcat7-maven-plugin</artifactId>
 				<version>2.2</version>
 				<configuration>
-					<url>http://localhost:8080/manager/text</url>
+					<url>${tomcat.url}</url>
 					<server>tomcat-server</server>
 				</configuration>
 			</plugin>
